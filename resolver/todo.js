@@ -1,5 +1,7 @@
-const todos = require('../models/todo');
-
 module.exports = {
-    Query: {},
+    Query: {
+        async todos(_, __, { model }) {
+            return await model.find({});
+        }
+    },
 }
