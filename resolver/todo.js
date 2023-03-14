@@ -7,7 +7,10 @@ module.exports = {
             return await model.findOne({ _id: id });
         },
         async todosByRole(_, { input }, { model }) {
-            return await model.find({ assignedTo: input.assignedTo});
+            return await model.find({ assignedTo: input.assignedTo });
+        },
+        async todosByActivity(_, { input }, { model }) {
+            return await model.find({ activity: new RegExp(input.activity) });
         }
     },
 }

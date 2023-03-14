@@ -15,13 +15,15 @@ const typeDefs = gql`
     }
     
     input TodoInput {
-        assignedTo: Role!
+        assignedTo: Role
+        activity: String
     }
     
     type Query {
         todos: [Todo]!
         todo(id: ID!): Todo!
         todosByRole(input: TodoInput): [Todo]!
+        todosByActivity(input: TodoInput): [Todo]!
     }
 `
 
