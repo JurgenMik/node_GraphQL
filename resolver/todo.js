@@ -13,4 +13,11 @@ module.exports = {
             return await model.find({ activity: new RegExp(input.activity) });
         }
     },
+    Mutation: {
+        async addTodo(_, { input }, { model }) {
+            let todo = {...input, completed: false};
+
+            return await model.create(todo);
+        },
+    }
 }

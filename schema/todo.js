@@ -19,11 +19,20 @@ const typeDefs = gql`
         activity: String
     }
     
+    input NewTodoInput {
+        assignedTo: Role!
+        activity: String!
+    }
+    
     type Query {
         todos: [Todo]!
         todo(id: ID!): Todo!
         todosByRole(input: TodoInput): [Todo]!
         todosByActivity(input: TodoInput): [Todo]!
+    }
+    
+    type Mutation {
+        addTodo(input: NewTodoInput!): Todo!
     }
 `
 

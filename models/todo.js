@@ -11,7 +11,6 @@ const todosSchema = new mongoose.Schema({
     },
     completed: {
         type: Boolean,
-        required: "Status of completed is required",
     }
 }, {versionKey: false});
 
