@@ -14,9 +14,14 @@ const typeDefs = gql`
         completed: Boolean!
     }
     
+    input TodoInput {
+        assignedTo: Role!
+    }
+    
     type Query {
         todos: [Todo]!
         todo(id: ID!): Todo!
+        todosByRole(input: TodoInput): [Todo]!
     }
 `
 
