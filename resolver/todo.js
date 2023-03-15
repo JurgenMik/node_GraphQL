@@ -23,6 +23,15 @@ module.exports = {
             await model.findOneAndDelete({ _id: id});
 
             return true;
+        },
+        async editTodo(_, { id, input }, { model }) {
+            let todo = await model.findOneAndUpdate({ _id: id }, input, {
+                new: true,
+            });
+
+            if (!todo) { return await model.create(input); }
+
+            return todo;
         }
     }
 }

@@ -24,6 +24,12 @@ const typeDefs = gql`
         activity: String!
     }
     
+    input UpdateTodoInput {
+        assignedTo: Role
+        activity: String
+        completed: Boolean
+    }
+    
     type Query {
         todos: [Todo]!
         todo(id: ID!): Todo!
@@ -34,6 +40,11 @@ const typeDefs = gql`
     type Mutation {
         addTodo(input: NewTodoInput!): Todo!
         deleteTodo(id: ID!): Boolean!
+        editTodo(
+            id: ID!,
+            input: UpdateTodoInput
+        ): Todo!
+        
     }
 `
 
