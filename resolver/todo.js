@@ -19,5 +19,10 @@ module.exports = {
 
             return await model.create(todo);
         },
+        async deleteTodo(_, { id }, { model }) {
+            await model.findOneAndDelete({ _id: id});
+
+            return true;
+        }
     }
 }

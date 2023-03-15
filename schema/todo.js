@@ -33,6 +33,7 @@ const typeDefs = gql`
     
     type Mutation {
         addTodo(input: NewTodoInput!): Todo!
+        deleteTodo(id: ID!): Boolean!
     }
 `
 
